@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vérification du Code</title>
+    <link rel="stylesheet" href="/inscription/css/verifyCodeNew.css">
+</head>
+<body>
+    <div class="verify-container">
+        <div class="verify-form">
+            <button class="close-btn" onclick="window.location.href='inscriptionPage.html'">×</button>
+            <img src="/inscription/asset/x.png" alt="Logo X" class="logo">
+            <h1 style="font-size: 50px;font-weight: bold; font-family: Arial, sans-serif;">Nous vous avons envoyé un code</h1>
+            <p style="font-size: 20px;font-weight: bold; font-family: Arial, sans-serif; color: rgb(145, 144, 142);">Saisissez-le ci-dessous pour vérifier <br><strong id="user-email" style="font-size: 15px;font-weight: bold; font-family: Arial, sans-serif;"></strong></p>
+            <label for="verification-code">Code de vérification</label>
+            <script>
+                const urlParams = new URLSearchParams(window.location.search);
+                const email = urlParams.get('email');
+                document.getElementById('user-email').textContent = decodeURIComponent(email);
+            </script>
+            <input type="text" id="verification-code" name="verification-code" placeholder="Entrez le code ici" required onfocus="this.style.borderColor='blue'">
+            <button class="submit-btn" type="button" onclick="verifyCode()">Suivant</button>
+            <a href="#" onclick="showAlert()">Vous n'avez pas reçu l'email ?</a>
+        </div>
+    </div>
+    <div id="overlay" onclick="hideAlert()" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5);"></div>
+    <div id="alertBox" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:rgb(26, 25, 25); padding:20px; border-radius:10px; box-shadow:0 0 20px rgba(66, 66, 66, 0.5);">
+        <p>Vous n'avez pas reçu l'email ?</p>
+        <button onclick="resendEmail()">Renvoyer l'email</button>
+        <button onclick="usePhone()">Utiliser un téléphone</button>
+    </div>
+    <script src="/inscription/js/verifyCode.js"></script>
+</body>
+</html>

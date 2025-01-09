@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de Profil X</title>
+    <link rel="stylesheet" href="/inscription/css/changeProfil.css">
+</head>
+<body>
+    <div class="main-content">
+        <div class="profile-modal">
+            <h2>Choisissez une image de profil</h2>
+            <p>Vous avez un selfie préféré ? Téléchargez-le vite.</p>
+            <div class="profile-pic" onclick="document.getElementById('fileInput').click();">
+                <img src="/inscription/asset/profil.png" alt="Camera Icon">
+            </div>
+            <input type="file" id="fileInput" style="display: none;" onchange="previewImage(event)">
+            <button onclick="window.location.href='/home.html'">Passer pour le moment</button>
+        </div>
+    </div>
+    <script>
+        function previewImage(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.querySelector('.profile-pic img').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+
+                // Redirection après 2 secondes
+                setTimeout(function() {
+                    window.location.href = '/home.html';
+                }, 2000);
+            }
+        }
+    </script>
+</body>
+</html>

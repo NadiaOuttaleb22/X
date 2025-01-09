@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion à X</title>
+    <link rel="stylesheet" href="/inscription/css/connect.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <button class="close-btn" onclick="window.location.href='inscriptionPage.html'">×</button>
+            <img src="/inscription/asset/x.png" alt="Logo X" class="logo">
+            <h2>Connectez-vous à X</h2>
+            <button class="login-btn google">
+                <img src="/inscription/asset/google.png" alt="Google Logo" class="icon"> Se connecter avec Google
+            </button>
+            <button class="login-btn apple">
+                <img src="/inscription/asset/apple.png" alt="Apple Logo" class="icon"> Se connecter avec Apple
+            </button>
+            <div class="separator">ou</div>
+            <input type="email" id="email-input" placeholder="Adresse email" oninput="validateEmail()" style="width: 97%; padding: 5px; font-size: 16px; border-radius: 50px; color: rgb(255, 255, 255);font-size: 17px;">
+            <button class="login-btn next" id="next-btn" style="color: black; font-weight: bold;">Suivant</button>
+            <script>
+                document.getElementById('next-btn').addEventListener('click', function() {
+                    const emailInput = document.getElementById('email-input');
+                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (emailPattern.test(emailInput.value)) {
+                        const email = encodeURIComponent(emailInput.value);
+                        window.location.href = `enterPasswd.html?email=${email}`;
+                    } else {
+                        const alertBox = document.createElement('div');
+                        alertBox.textContent = 'Veuillez entrer une adresse email valide.';
+                        alertBox.style.position = 'fixed';
+                        alertBox.style.top = '20px';
+                        alertBox.style.left = '50%';
+                        alertBox.style.transform = 'translateX(-50%)';
+                        alertBox.style.backgroundColor = '#f8d7da';
+                        alertBox.style.color = '#721c24';
+                        alertBox.style.padding = '10px 20px';
+                        alertBox.style.border = '1px solid #f5c6cb';
+                        alertBox.style.borderRadius = '5px';
+                        alertBox.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+                        document.body.appendChild(alertBox);
+                        setTimeout(() => {
+                            alertBox.remove();
+                        }, 3000);
+                    }
+                });
+            </script>
+            <a href="#" class="forgot-password" style="color: rgb(59, 59, 59); font-weight: bold;" onclick="redirectToForgotPassword()">Mot de passe oublié ?</a>
+            <p>Vous n'avez pas de compte ? <a href="signup.html" class="signup-link">Inscrivez-vous</a></p>
+            <script>
+                function redirectToForgotPassword() {
+                    const emailInput = document.getElementById('email-input');
+                    const email = encodeURIComponent(emailInput.value);
+                    window.location.href = `forgetPasswd.html?email=${email}`;
+                }
+            </script>
+        </div>
+    </div>
+    <script>
+        function validateEmail() {
+            const emailInput = document.getElementById('email-input');
+            const nextBtn = document.getElementById('next-btn');
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (emailPattern.test(emailInput.value)) {
+                nextBtn.style.backgroundColor = 'skyblue';
+                nextBtn.style.color = 'white';
+            } else {
+                nextBtn.style.backgroundColor = '';
+                nextBtn.style.color = 'black';
+            }
+        }
+    </script>
+    <script src="/inscription/js/connect.js"></script>
+</body>
+</html>
