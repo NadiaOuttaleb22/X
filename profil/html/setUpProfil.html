@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de Profil X</title>
+    <link rel="stylesheet" href="/profil/css/setUpProfil.css">
+</head>
+<body>
+    <div class="main-content">
+        <div class="profile-modal">
+            <p>Vous avez un selfie préféré ? Téléchargez-le vite.</p>
+            <div class="profile-pic" onclick="document.getElementById('fileInput').click();">
+                <img src="/profil/asset/profil.png" alt="Camera Icon">
+            </div>
+            <input type="file" id="fileInput" style="display: none;" onchange="previewImage(event)">
+            <button id="nextButton" style="display: none;" onclick="goToChangeBio()">Next</button>
+            <button id="skipButton" onclick="window.location.href='/main.html'">Passer pour le moment</button>
+        </div>
+        <div id="alertMessage" style="display: none;">Merci d'avoir modifié le profil</div>
+        <script>
+            function previewImage(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        // Prévisualiser l'image
+                        document.querySelector('.profile-pic img').src = e.target.result;
+
+                        // Enregistrer l'image encodée en Base64 dans localStorage
+                        localStorage.setItem('profileImage', e.target.result);
+
+                        // Afficher le bouton "Next" et masquer "Passer pour le moment"
+                        document.getElementById('nextButton').style.display = 'block';
+                        document.getElementById('skipButton').style.display = 'none';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+
+            function goToChangeBio() {
+                // Redirection vers la page suivante
+                window.location.href = '/profil/html/changeBio.html';
+            }
+        </script>
+    </div>
+</body>
+</html>
