@@ -1,0 +1,83 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000000; /* Background color */
+    color: #ffffff; /* Default text color */
+    display: flex;
+    gap: 7px;
+    flex-direction: row;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #121212; /* Sidebar background */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    border-right: 1px solid #2c2c2c; /* Border between sidebar and content */
+}
+
+.sidebar .logo img {
+    width: 80%;
+    max-width: 120px;
+    margin-bottom: 20px;
+}
+
+.sidebar .navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sidebar .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #d1d1d1;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.sidebar .nav-item:hover {
+    background-color: #1c1c1c;
+    color: #ffffff;
+}
+
+.sidebar .nav-item img {
+    width: 24px;
+    height: 24px;
+}
+
+.sidebar .post-button button {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-radius: 25px;
+    background-color: #1d9bf0; /* Blue button */
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sidebar .post-button button:hover {
+    background-color: #1483d6;
+}
+
+/* Top Navigation */
+.top-nav {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #121212; /* Same as sidebar */
+    border-bottom: 1px solid #2c2c2c;
+}

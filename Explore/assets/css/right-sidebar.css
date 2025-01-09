@@ -1,0 +1,30 @@
+.right-sidebar {
+    width: 300px;
+    background: #ffffff;
+    padding: 15px;
+    border-left: 1px solid #ddd;
+}
+
+.right-sidebar h3 {
+    margin: 0 0 15px;
+    color: #1da1f2;
+    font-size: 18px;
+}
+
+.follow-suggestion {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.follow-suggestion button {
+    background-color: #1da1f2;
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.follow-suggestion button:hover {
+    background-color: #0d8bf0;
+}

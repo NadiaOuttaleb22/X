@@ -1,0 +1,585 @@
+/* Sidebar */
+
+.sidebar {
+    width: 20%;
+    background-color: #000000;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 100vh; /* Set a maximum height for the scrollable area */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: #8899A6;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.sidebar ul li a:hover {
+    color: #1D9BF0;
+}
+
+.post-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #1D9BF0;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Profile Center (Main Section) */
+.profile-center {
+    flex: 2;
+    width: 40%;
+    margin: 20px 20px 0 0;
+    padding: 20px;
+    background-color: #070707;
+    border-radius: 20px;
+    border: 1px solid #ffffff;
+    box-shadow: 0 4px 10px rgba(223, 220, 220, 0.1);
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 100vh; /* Set a maximum height for the scrollable area */
+}
+
+/* Profile Header Styling */
+.profile-header {
+    display: flex;
+    align-items: flex-start;
+    padding: 16px;
+    border-bottom: 1px solid #2f3336;
+    gap: 16px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(223, 220, 220, 0.1);
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.profile-pic {
+    width: 180px;
+    height: 160px;
+   
+    border-radius: 50%;
+}/**/
+
+.profile-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-header-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-header-info h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.get-verified {
+    padding: 4px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1D9BF0;
+    background-color: transparent;
+    border: 1px solid #1D9BF0;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.get-verified:hover {
+    background-color: #1D9BF0;
+    color: #ffffff;
+}
+
+.username {
+    margin: 4px 0;
+    color: #8899A6;
+    font-size: 16px;
+}
+
+.join-date {
+    margin: 4px 0;
+    color: #8899A6;
+    font-size: 14px;
+}
+
+.follow-info {
+    margin: 8px 0;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.follow-info span {
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.follow-info span:hover {
+    color: #1D9BF0;
+}
+
+.setup-profile {
+    margin-top: 12px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #1D9BF0;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.setup-profile:hover {
+    background-color: #1484c4;
+}
+
+
+
+.profile-tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    border-bottom: 1px solid #030303;
+}
+
+
+
+
+.setup-steps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.step {
+    flex: 1;
+    padding: 10px;
+    background-color: #070707;
+    color: #8899A6;
+    border-radius: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.profile-content {
+    margin-top: 20px;
+}
+
+.post {
+    background-color: #000000;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+}
+
+.post-pic {
+    width: 40px;
+    height: 40px;
+    background-color: #657786;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-info h4 {
+    margin: 0;
+    font-size: 14px;
+}
+
+.post-info p {
+    margin: 2px 0;
+    font-size: 12px;
+    color: #8899A6;
+}
+
+.post-body {
+    margin: 10px 0;
+}
+
+.post-footer {
+    display: flex;
+    justify-content: space-around;
+}
+
+.post-footer button {
+    background: none;
+    border: none;
+    color: #1D9BF0;
+    cursor: pointer;
+    font-size: 14px;
+}
+/* Sidebar Right (Right Section) */
+.sidebar-right {
+    background-color: #000000;
+    margin-top: 20px;
+    padding: 10px;
+    margin-left: 0px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border: 1px solid #ffffff;
+    box-shadow: 0 4px 10px rgba(223, 220, 220, 0.1);
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 100vh; /* Set a maximum height for the scrollable area */
+}
+.suggestions{
+    margin-top: 20px;
+
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #000000;
+    box-shadow: 0 10px 19px rgba(255, 254, 254, 0.1);
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 100vh; /* Set a maximum height for the scrollable area */
+    border-radius: 10px;
+}
+
+.trending{
+    margin-top: 20px;
+
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #000000;
+    box-shadow: 0 10px 19px rgba(255, 254, 254, 0.1);
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 100vh; /* Set a maximum height for the scrollable area */
+    border-radius: 10px;
+}
+
+.suggestions, .trending {
+    margin-bottom: 20px;
+}
+
+.suggestions h3, .trending h3 {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.suggestions ul, .trending ul {
+    list-style: none;
+    padding: 0;
+}
+
+.suggestions ul li, .trending ul li {
+    margin: 10px 0;
+}
+
+.suggestions ul li a, .trending ul li a {
+    color: #1D9BF0;
+    text-decoration: none;
+}
+
+.suggestions ul li a:hover, .trending ul li a:hover {
+    text-decoration: underline;
+}
+
+
+/* Onglet actif avec une bordure inférieure */
+.profile-tabs button {
+    flex: 1;
+    padding: 10px;
+    background: none;
+    border: none;
+    color: #8899A6;
+    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.profile-tabs button.active {
+    color: #1D9BF0;
+}
+
+.profile-tabs button::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.profile-tabs button.active::after {
+    background-color: #1D9BF0;
+}
+.nav-tabs{
+    width: 53%;
+}
+
+/* Commentaires */
+.who-to-follow {
+    width: 300px;
+    margin: 0;
+}
+
+.who-to-follow h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.who-to-follow ul {
+    list-style: none;
+    padding: 0;
+}
+
+.who-to-follow li {
+    margin-bottom: 15px;
+}
+
+.follow-suggestion {
+    display: flex;
+    align-items: center;
+}
+
+.follow-pic {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.follow-info {
+    flex-grow: 1;
+}
+
+.follow-info h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.follow-info p {
+    margin: 0;
+    color: #1DA1F2;
+}
+
+.follow-button {
+    background-color: #1DA1F2;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.show-more {
+    color: #1DA1F2;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Footer */
+
+
+
+.post {
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+}
+
+.post-pic {
+    width: 50px;
+    height: 50px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-info h4 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.post-info p {
+    margin: 0;
+    color: #888;
+    font-size: 14px;
+}
+
+.post-body p {
+    margin: 10px 0;
+}
+
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-footer button {
+    background-color: transparent;
+    color: #808486;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.post-footer button i {
+    margin-right: 5px;
+}
+
+.post-footer button:hover {
+    color: #000000;
+}
+
+
+
+/* =================================================================*/
+
+.highlight-container {
+    background-color: #070707;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 0 auto;
+}
+
+.highlight-container h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.highlight-container p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.highlight-container button {
+    background-color: #d4d1d1;
+    color: #000;
+    border: 2px oldlace;
+    padding: 20px 40px;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.highlight-container button:hover {
+    background-color: #ccc;
+}
+
+
+/* =================================================================*/
+
+
+
+.suggestions, .trending {
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(71, 71, 71, 0.1);
+}
+
+.suggestions h3, .trending h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.suggestions ul, .trending ul {
+    list-style: none;
+    padding: 0;
+}
+
+.suggestions li, .trending li {
+    margin-bottom: 15px;
+}
+
+.suggestions a, .trending a {
+    color: #1da1f2;
+    text-decoration: none;
+}
+
+.suggestions a:hover, .trending a:hover {
+    text-decoration: underline;
+}
+
+.follow-suggestion {
+    display: flex;
+    align-items: center;
+}
+
+.follow-pic {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.follow-info {
+    flex-grow: 1;
+}
+
+.follow-info h4 {
+    font-size: 16px;
+    margin: 0;
+}
+
+.follow-info p {
+    margin: 0;
+    color: #888;
+    font-size: 14px;
+}
+
+.follow-button {
+    background-color: #1da1f2;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.follow-button:hover {
+    background-color: #0d8ddb;
+}
+
+.show-more {
+    color: #1da1f2;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 10px;
+}
