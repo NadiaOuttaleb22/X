@@ -1,0 +1,523 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Body background color */
+    color: #fff;
+    display: flex;
+    overflow: hidden; /* Prevent the entire body from scrolling horizontally */
+}
+
+/* Sidebar */
+/* Sidebar */
+.sidebar {
+    width: 240px; /* Increased sidebar width */
+    background-color: #000;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 11px;
+    border-right: 1px solid white;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+
+/* Sidebar Buttons */
+.sidebar .icon {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between image and text */
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 20px;
+    text-align: left;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-left: 62px;
+}
+
+.sidebar .icon:hover {
+    background-color: #1d1f21;
+    border-radius: 5px;
+}
+
+/* Images inside buttons */
+.sidebar img {
+    width: 37px;
+    height: 37px;
+}
+.sidebar a {
+    text-decoration: none;
+}
+
+
+/* Text next to images */
+.icon-text {
+    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
+    flex-grow: 1;
+}
+
+
+/* Profile Section */
+.profile {
+    width: 80px; /* Larger profile icon */
+    height: 80px;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 40px; /* Adjusted spacing for the larger size */
+    left: 50px; /* Centered within the larger sidebar */
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.profile-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+    margin-top: 49px;
+    margin-left: 24px;
+}
+
+.profile-img:hover {
+    transform: scale(1.1);
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 10px 0;
+    background-color: #000;
+    border-bottom: 1px solid #2f3336;
+    position: fixed;
+    top: 0;
+    
+    right: 362px; /* Keep the same right margin */
+    z-index: 10;
+    
+    left: 242px; /* Adjust to align with the new sidebar width */
+}
+
+.tab {
+    cursor: pointer;
+    padding: 10px 15px;
+    background-color: transparent;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.tab:hover {
+    background-color: #1d1f21;
+}
+
+.tab.active {
+    border-bottom: 4px solid #1d9bf0;
+    color: #fff;
+}
+
+/* Content */
+.content {
+    padding: 20px;
+    color: #fff;
+    margin-left: 182px; /* Match the new sidebar width */
+    margin-top: 50px; /* Offset the fixed tabs */
+    height: calc(100vh - 50px);
+    
+    overflow: hidden; /* Prevent horizontal scrolling on the entire content area */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #000; /* Same as body background color */
+    margin-left: 242px; /* Match the new sidebar width */
+    width: calc(100% - 602px); /* Adjust based on new sidebar width */
+}
+
+/* Scrollable content */
+.scrollable-content {
+    
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 1px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 65px;
+    left: 180px; /* Align with the new sidebar width */
+    right: 259px;
+    left: 240px; /* Align with the new sidebar width */
+    width: calc(100% - 240px - 360px); /* Adjust for new sidebar width */
+}
+
+/* Post styling */
+.post {
+    background-color: #000;
+    border-radius: 10px; /* Adding border-radius for rounded corners */
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ffffffae; /* White border */
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.post-time {
+    font-size: 12px;
+    color: #888;
+}
+
+.post-content h3 {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.post-content p {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.post-content img {
+    width: 85%;
+    border-radius: 8px; /* Rounded corners for the image */
+    margin-top: 10px;
+    margin-left: 40px;
+}
+
+/* Styles for the post bar */
+.post-bar {
+    display: flex;
+    align-items: center;
+    padding: 10px 0; /* Adds spacing inside the bar */
+   
+    margin-top: 10px;
+    gap: 70px;
+}
+.create-post {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #dddddd83;
+    border-radius: 10px;
+    align-items: flex-start; /* Align items at the top */
+    background-color: white;
+}
+
+.profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #ccc;
+}
+
+.post-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-textarea {
+    width: 94%;
+    height: 80px;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    border: 1px solid #cccccc87;
+    border-radius: 8px;
+    resize: none; /* Prevent resizing */
+    outline: none;
+    background-color: #000;
+}
+
+.post-textarea:focus {
+    border-color: #1da1f2; /* Optional: Focus border color */
+    box-shadow: 0 0 5px rgba(29, 161, 242, 0.5);
+}
+
+.post-button {
+    align-self: flex-start; /* Keeps the button fixed at the top */
+    padding: 8px 16px;
+    font-size: 16px;
+    color: white;
+    background-color: #1da1f2;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    
+    margin-top: 70px;
+}
+
+.post-button:hover {
+    background-color: #0d8bec;
+}
+
+
+
+
+/* Individual bar items */
+.bar-item {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Space between icon and number */
+}
+
+.bar-item img {
+    width: 20px; /* Icon size */
+    height: 20px;
+}
+
+.bar-number {
+    font-size: 14px;
+    color: #555;
+}
+
+
+
+button {
+    padding: 5px 10px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1d9bf0;
+    border-color: #1d9bf0;
+}
+
+/* Right Sidebar */
+.right-sidebar {
+    width: 320px;
+    background-color: #000; /* Same as body background color */
+    padding: 20px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    border-left: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.search-bar {
+    position: relative;
+    width: 100%;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: black;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.search-input::placeholder {
+    color: #888;
+}
+
+.right-item {
+    background-color: black;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid #fff;
+}
+
+.right-item p {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.right-item button {
+    padding: 10px 20px;
+    background-color: #1d9bf0;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.right-item button:hover {
+    background-color: #0d8be0;
+}
+
+.right-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.right-item ul li,
+.right-item p:not(.title) {
+    font-size: 14px;  /* Regular font size for content */
+    color: #ccc;  /* Light gray color for content text */
+}
+
+/* Following Section */
+.following-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #030303;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid white;  /* White border */
+}
+
+.following-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.follow-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.follow-name {
+    font-weight: bold;
+    color: #fff;
+}
+
+.follow-bio {
+    color: #ccc;
+}
+
+.follow-followers {
+    color: #1d9bf0;
+    font-size: 14px;
+}
+/* Right Sidebar Titles */
+.right-item p.title {
+    font-size: 16px;  /* Larger font size for titles */
+    font-weight: bold; /* Bold to emphasize the title */
+    color: #fff;  /* White color for titles */
+    margin-bottom: 10px;  /* Space below the title */
+}
+
+/* Right Sidebar Content Text */
+.right-item p {
+    font-size: 16px;  /* Larger font size for titles */
+    font-weight: bold; /* Bold to emphasize the title */
+    color: #fff;  /* White color for titles */
+    margin-bottom: 10px;  /* Space below the title */
+}
+.create-post {
+    display: flex;
+    align-items: center;
+    padding: 13px;
+    margin: 7px 0;
+    background-color: #030303;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px #070707;
+    /* width: 378px; */
+    height: 109px;
+    border: 1px solid #ffffffae;
+}
+
+
+/* Profile picture */
+.profile-picture {
+    width: 40px; /* Size of the profile picture */
+    height: 40px;
+    border-radius: 50%; /* Makes the image circular */
+    margin-right: 10px; /* Spacing between the image and text */
+}
+
+/* Text for "What will you post today?" */
+.create-post-text {
+    font-size: 19px;
+    color: #555;
+}
+
+/* Animation for icon click */
+.icon-clicked {
+    animation: pop 0.3s ease-in-out;
+}
+
+/* Keyframes for pop animation */
+@keyframes pop {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+/* Hover animation for icons */
+/* Hover animation for icons with size and color change */
+.bar-item img {
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /* Smooth transition for both size and color */
+}
+
+.bar-item img:hover {
+    transform: scale(1.3); /* Scale up the icon */
+    filter: brightness(1.5); /* Increase brightness */
+}
+
+
+/* Add a transition effect for clicked icons in the left sidebar */
+.sidebar .icon.clicked {
+    background-color: #2f2f2f; /* Brighter/darker background color to indicate selection */
+    border-radius: 5px;
+    transform: scale(1.05); /* Slightly increase the size */
+    transition: all 0.3s ease;
+}
+
+/* Optional: Restore original state when not clicked */
+.sidebar .icon {
+    transition: all 0.3s ease;
+    transform: scale(1);
+}
+
