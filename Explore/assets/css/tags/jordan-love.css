@@ -1,0 +1,26 @@
+/* Styles pour la page Jordan Love */
+#tag-jordan-love-content {
+    background-color: #f5f9fa;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#tag-jordan-love-content h2 {
+    color: #1da1f2;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+#tag-jordan-love-content .post {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#tag-jordan-love-content .post strong {
+    color: #657786;
+    font-size: 14px;
+}

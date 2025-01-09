@@ -1,0 +1,25 @@
+/* Styles pour la page Bad Bunny */
+#tag-bad-bunny-content {
+    background-color: #fff5f0;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#tag-bad-bunny-content h2 {
+    color: #ff4500;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+#tag-bad-bunny-content .post {
+    border: 1px solid #f4a261;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background: #ffffff;
+}
+
+#tag-bad-bunny-content .post strong {
+    color: #e76f51;
+    font-size: 14px;
+}

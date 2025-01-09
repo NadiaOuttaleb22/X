@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>X</title>
+        <!-- Lien vers les fichiers CSS -->
+        <link rel="stylesheet" href="/Explore/assets/css/global.css">
+        <link rel="stylesheet" href="/Explore/assets/css/sidebar.css">
+        <link rel="stylesheet" href="/Explore/assets/css/content.css">
+        <link rel="stylesheet" href="/Explore/assets/css/right-sidebar.css">
+        <link rel="stylesheet" href="/Explore/assets/css/top-nav.css">
+        
+
+    </head>
+    <style>
+        /* Styles pour la barre de navigation */
+        .top-nav {
+            display: flex;
+            background-color: #000000;
+            padding: 10px 20px;
+            border-bottom: 1px solid #000000;
+        }
+
+        button.nav-item {
+            background: none;
+            border: none;
+            color: #999;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        button.nav-item:hover {
+            background-color: #2a2a2a;
+        }
+
+        button.nav-item.active {
+            color: #00aaff;
+            font-weight: bold;
+            border-bottom: 2px solid #00aaff;
+        }
+        .main-content {
+    padding: 20px;
+    margin: 20px auto;
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    width: 80%; /* Ajustez cette valeur selon vos besoins */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.main-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.main-content p {
+    font-size: 16px;
+    color: #ccc;
+}
+/* Assurez-vous que le conteneur global prend toute la hauteur */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; /* Trois colonnes : gauche, centre, droite */
+  height: 100vh; /* La hauteur du viewport */
+  overflow: hidden; /* Empêche le défilement global */
+}
+
+/* Les barres latérales restent fixes */
+.sidebar,
+.sidebar-right {
+  overflow: hidden; /* Empêche le défilement des barres latérales */
+}
+
+/* La section centrale est défilable */
+.main-content {
+  overflow-y: auto; /* Active le défilement vertical uniquement pour le centre */
+  height: 100%; /* S'assure que la section centrale utilise toute la hauteur */
+}
+
+
+
+    
+    </style>
+    
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="/Explore/assets/le projet X/LogoX.png" alt="X Logo">
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="navigation">
+            <a href="#" class="nav-item" onclick="loadContent('content/sections/for-you.html')">
+                <img src="assets/le projet X/Home.png" alt="Home Icon">
+                <span>Home</span>
+            </a>
+            <a href="#" class="nav-item" onclick="loadContent('content/sections/trending.html')">
+                <img src="assets/le projet X/Explore.png" alt="Explore Icon">
+                <span>Explore</span>
+            </a>
+            <a href="#" class="nav-item" onclick="loadContent('content/sections/news.html')">
+                <img src="assets/le projet X/Notifications.png" alt="Notifications Icon">
+                <span>Notifications</span>
+            </a>
+            <a href="#" class="nav-item" onclick="loadContent('content/sections/messages.html')">
+                <img src="assets/le projet X/Messages.png" alt="Messages Icon">
+                <span>Messages</span>
+            </a>
+            <a href="#" class="nav-item" onclick="loadContent('content/sections/sports.html')">
+                <img src="assets/le projet X/Profile.png" alt="Profile Icon">
+                <span>Profile</span>
+            </a>
+            <a href="#" class="nav-item" onclick="loadContent('content/sections/entertainment.html')">
+                <img src="assets/le projet X/More.png" alt="More Icon">
+                <span>More</span>
+            </a>
+        </nav>
+
+        <!-- Post Button -->
+        
+    </div>
+    <div class="nav-tabs">
+        <div class="search-container">
+            <input type="text" placeholder="Search" class="search-bar" id="search-bar">
+            <div class="parametre-icon">
+            <img src="./assets/le projet X/picon.png" alt="img">
+            </div>
+        </div>
+        <script>
+            document.getElementById('search-bar').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                alert('Search not found');
+            }
+            });
+        </script>
+        <div class="top-nav">
+            <button class="nav-item active" onclick="setActive(this); loadContent('content/sections/for-you.html', 'for-you')">For You</button>
+            <button class="nav-item" onclick="setActive(this); loadContent('content/sections/trending.html', 'trending')">Trending</button>
+            <button class="nav-item" onclick="setActive(this); loadContent('content/sections/news.html', 'news')">News</button>
+            <button class="nav-item" onclick="setActive(this); loadContent('content/sections/sports.html', 'sports')">Sports</button>
+            <button class="nav-item" onclick="setActive(this); loadContent('content/sections/entertainment.html', 'entertainment')">Entertainment</button>
+        </div>
+        <div class="main-content" id="main-content"></div>
+            <!-- Section principale sous la top-nav -->
+            
+        </div>
+    </div>
+    
+
+    
+
+        <!-- Main Content -->
+    
+    <div class="sidebar-right" id="sidebar-right"> 
+        <div class="suggestions"> 
+            <h3>You might like</h3> 
+            <ul> 
+                <li> 
+                    <div class="follow-suggestion"> 
+                        <img src="./assets/le projet X/user1.jpg" alt="Johns Charts" class="follow-pic"> 
+                        <div class="follow-info"> 
+                            <h4>Johns Charts</h4>
+                            <p>@johnscharts</p> 
+                        </div> <button class="follow-button">Follow</button> 
+                    </div> 
+                </li> 
+                <li> 
+                    <div class="follow-suggestion"> 
+                        <img src="./assets/le projet X/user2.jpg" alt="St. Louis Fed" class="follow-pic"> 
+                        <div class="follow-info"> 
+                            <h4>St. Louis Fed</h4> 
+                            <p>@stlouisfed</p> 
+                        </div> 
+                        <button class="follow-button">Follow</button> 
+                    </div> 
+                </li> 
+                <li> 
+                    <div class="follow-suggestion"> 
+                        <img src="./assets/le projet X/messenger.png" alt="رسائل" class="follow-pic"> 
+                        <div class="follow-info"> 
+                            <h4>رسائل</h4> 
+                            <p>@Risslh</p> 
+                        </div> <button class="follow-button">Follow</button> 
+                    </div> 
+                </li> 
+            </ul>
+        <div class="show-more">Show more</div>
+        </div> <div class="trending"> 
+        <h3>What's happening</h3> 
+        <ul> 
+            <li>
+                <a href="#">البطوله الاحترافيه</a>
+            </li> 
+            <li>
+                <a href="#">بانن الاحبه</a>
+            </li> 
+            <li>
+                <a href="#">المغرب التطواني</a>
+            </li> 
+            <li><a href="#">لولا الظروف</a>
+            </li> 
+        </ul> 
+        <div class="show-more">Show more</div> 
+    </div> 
+    </div>
+
+    <script>
+        // Fonction pour changer l'élément actif
+        function setActive(element) {
+            // Supprimer la classe 'active' de tous les boutons
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
+
+            // Ajouter la classe 'active' au bouton cliqué
+            element.classList.add('active');
+        }
+
+        // Fonction pour charger dynamiquement le contenu
+        function loadContent(url) {
+            const contentDiv = document.getElementById('content');
+            contentDiv.textContent = `Loading content from ${url}...`;
+
+            // Simulation de chargement (vous pouvez utiliser fetch ou XMLHttpRequest pour charger du contenu réel)
+            setTimeout(() => {
+                contentDiv.textContent = `Content loaded from ${url}`;
+            }, 1000);
+        }
+    </script>
+
+    <!-- JavaScript -->
+    <script src="/Explore/assets/js/script.js"></script>
+    <script src="/Explore/assets/js/sidebar.js"></script>
+    <script src="/Explore/assets/js/right-sidebar.js"></script>
+    <script src="/Explore/assets/js/sections.js"></script>
+    <script src="/Explore/assets/js/tags.js"></script>
+    <script src="/Explore/assets/js/top-nav.js"></script>
+
+    
+</body>
+</html>

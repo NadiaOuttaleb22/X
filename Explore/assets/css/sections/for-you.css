@@ -1,0 +1,68 @@
+/* Conteneur principal */
+.trending-section {
+    width: 100%;
+    max-width: 600px; /* Largeur maximale pour un meilleur rendu */
+    margin: 0 auto; /* Centrer horizontalement */
+    background-color: #000000; /* Fond sombre */
+    padding: 20px;
+    border-radius: 8px; /* Coins arrondis */
+    color: #fff; /* Texte blanc */
+    font-family: Arial, sans-serif;
+}
+
+/* Liste des tendances */
+.trending-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Élément de la liste */
+.trending-item {
+    padding: 15px 0;
+    border-bottom: 1px solid #333; /* Ligne de séparation */
+    display: flex;
+    justify-content: space-between; /* Espacement entre le contenu principal et les points */
+    align-items: center;
+}
+
+.trending-item:last-child {
+    border-bottom: none; /* Pas de ligne pour le dernier élément */
+}
+
+/* Texte d'information */
+.trending-item span {
+    display: block;
+    font-size: 14px;
+    color: #888; /* Couleur légèrement grise */
+    margin-bottom: 5px;
+}
+
+.trending-item h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 5px 0;
+    color: #fff; /* Texte principal blanc */
+}
+
+.trending-item p {
+    font-size: 16px;
+    color: #bbb; /* Texte gris clair */
+}
+
+/* Points de menu supplémentaires */
+.more-options {
+    color: #888;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.more-options:hover {
+    color: #fff; /* Couleur blanche au survol */
+}
+
+/* Effet au survol */
+.trending-item:hover {
+    background-color: #1a1a1a; /* Fond légèrement plus clair au survol */
+    cursor: pointer;
+}
