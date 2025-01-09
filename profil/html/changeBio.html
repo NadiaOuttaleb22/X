@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/profil/css/changeBio.css">
+    <title>Changer la Bio</title>
+    <style>
+        body {
+            background-color: #1A1A1A;
+            color: #FFFFFF;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('/inscription/asset/backGroundChangeProfil.png'); /* Vérifiez ce chemin */
+            background-size: cover;
+            background-position: center;
+        }
+        .bio-container {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 50px;
+            border-radius: 40px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 600px;
+            height: 100%;
+            
+            box-shadow: 0 10px 10px rgba(240, 239, 239, 0.3);
+
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .bio-container input {
+            width: 90%;
+            padding: 20px;
+            margin-bottom: 400px;
+            padding: auto;
+            border: 2px solid #f0eded;
+            border-radius: 10px;
+            background-color: #333;
+            color: #FFF;
+            transition: border-color 0.3s ease;
+        }
+        .bio-container input:focus {
+            border-color: #1E90FF;
+            outline: none;
+        }
+        .bio-container button {
+            margin: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, opacity 0.3s ease;
+        }
+        .bio-container button.skip {
+            background-color: #555;
+            color: #FFF;
+        }
+        .bio-container button.next {
+            background-color: #555; /* Grisé si désactivé */
+            color: #FFF;
+            cursor: not-allowed; /* Désactiver le curseur */
+            opacity: 0.6;
+        }
+        .bio-container button.next.active {
+            background-color: #1E90FF; /* Bleu si activé */
+            cursor: pointer;
+            opacity: 1;
+        }
+        .bio-container button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="bio-container">
+        <h1>Describe yourself</h1>
+        <p >What makes you special? Don't think too hard, just have fun with it.</p>
+        <input type="text" id="bioInput" placeholder="Entrez votre bio">
+        <div>
+            <button class="skip" onclick="skip()">Passer</button>
+            <button class="next" id="nextButton" disabled>Continuer</button>
+        </div>
+    </div>
+    <script>
+        const bioInput = document.getElementById('bioInput');
+        const nextButton = document.getElementById('nextButton');
+        const base64Image = localStorage.getItem('profileImage'); // Récupérer l'image (si nécessaire)
+
+        // Activer le bouton "Next" uniquement si le champ de texte n'est pas vide
+        bioInput.addEventListener('input', () => {
+            if (bioInput.value.trim() !== '') {
+                nextButton.disabled = false;
+                nextButton.classList.add('active');
+            } else {
+                nextButton.disabled = true;
+                nextButton.classList.remove('active');
+            }
+        });
+
+        // Fonction pour le bouton "Passer"
+        function skip() {
+            // Passer uniquement l'image (enregistrer dans sessionStorage pour la page suivante)
+            sessionStorage.setItem('profileImage', base64Image);
+            window.location.href = '/profil/html/main.html';
+        }
+
+        // Fonction pour le bouton "Continuer"
+        nextButton.addEventListener('click', () => {
+            const bio = bioInput.value.trim();
+
+            // Enregistrer l'image et la bio dans sessionStorage pour la page suivante
+            sessionStorage.setItem('profileImage', base64Image);
+            sessionStorage.setItem('bio', bio);
+            window.location.href = '/profil/html/main.html';
+        });
+    </script>
+</body>
+</html>
