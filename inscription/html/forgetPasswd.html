@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Récupération de Mot de Passe</title>
+    <link rel="stylesheet" href="/inscription/css/forgetPasswd.css">
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center;">Xcc</h1>
+        <h1>Recherchez votre compte </h1>
+        <p>Entrez l'adresse email, le numéro de téléphone ou le nom d'utilisateur associé à votre compte pour modifier votre mot de passe.</p>
+        <form>
+            <div class="input-group">
+                <label for="identifier">Adresse email, numéro de téléphone ou nom d'utilisateur</label>
+                <input type="text" id="identifier" value="nadiaouttaleb128@gmail.com">
+                <script>
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const email = urlParams.get('email');
+                    document.getElementById('identifier').value = decodeURIComponent(email);
+                </script>
+            </div>
+            <button type="submit">Suivant</button>
+            <script>
+                document.querySelector('form').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    const identifier = document.getElementById('identifier').value;
+                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!identifier || !emailPattern.test(identifier)) {
+                        alert("Le champ n'est pas valide. Veuillez entrer une adresse email valide.");
+                    } else {
+                        window.location.href = 'verifyCodeNew.html?email=' + encodeURIComponent(identifier);
+                    }
+                });
+            </script>
+        </form>
+    </div>
+</body>
+</html>
