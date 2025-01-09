@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de Connexion</title>
+    <link rel="stylesheet" href="/inscription/css/enterPasswd.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Entrez votre mot de passe</h1>
+        <form>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <span id="email-text">Nadiaouttaleb2gmail.com</span>
+                <script>
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const email = urlParams.get('email');
+                    document.getElementById('email-text').textContent = decodeURIComponent(email);
+                </script>
+            </div>
+            <div class="input-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" placeholder="Mot de passe">
+                <a id="forgot-password-link" href="/inscription/html/forgetPasswd.html" class="forgot-password">Mot de passe oublié ?</a>
+            </div>
+            <button type="submit">Se connecter</button>
+        </form>
+        <p>Vous n'avez pas de compte ? <a href="/inscription/html/inscriptionPage.html">Inscrivez-vous</a></p>
+    </div>
+    <script>
+        document.getElementById('forgot-password-link').href = `/inscription/html/forgetPasswd.html?email=${encodeURIComponent(email)}`;
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
