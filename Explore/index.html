@@ -97,10 +97,10 @@
 
         <!-- Navigation Links -->
         <nav class="navigation">
-            <a href="#" class="nav-item" onclick="loadContent('content/sections/for-you.html')">
+            <button class="nav-item" onclick="redirectToHome()">
                 <img src="assets/le projet X/Home.png" alt="Home Icon">
                 <span>Home</span>
-            </a>
+            </button>
             <a href="#" class="nav-item" onclick="loadContent('content/sections/trending.html')">
                 <img src="assets/le projet X/Explore.png" alt="Explore Icon">
                 <span>Explore</span>
@@ -233,6 +233,11 @@
                 contentDiv.textContent = `Content loaded from ${url}`;
             }, 1000);
         }
+
+        function redirectToHome() {
+    window.location.href = "/Home/index.html"; // Redirection vers Home/index.html
+}
+
     </script>
 
     <!-- JavaScript -->
