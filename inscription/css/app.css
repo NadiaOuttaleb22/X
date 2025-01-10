@@ -1,0 +1,198 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #222b35;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    body {
+        font-family: Arial, sans-serif;
+        background-color: rgb(20, 35, 51);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    
+    p {
+        color: white;
+    }
+    
+    .container {
+        text-align: center;
+        background-color: rgb(0, 0, 0);
+        padding: 20px;
+        border-radius: 30px;
+        box-shadow: 0 10 20px rgba(0, 0, 0, 0.1);
+        width: 90%; /* Ajuster la largeur du conteneur */
+        max-width: 500px; /* Limiter la largeur maximale */
+        height: 660px; /* Ajuster la hauteur du conteneur */
+        position: relative; /* Pour positionner la croix */
+    }
+    
+    .close-btn {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: white;
+        text-decoration: none;
+        font-size: 24px;
+    }
+    
+    .logo {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 20px;
+    }
+    
+    h1 {
+        color: #eff1f3;
+    }
+    
+    button {
+        width: 90%; /* Réduire la largeur des boutons */
+        max-width: 300px; /* Limiter la largeur maximale */
+        padding: 13px;
+        margin: 10px auto; /* Centrer les boutons */
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    button img.icon {
+        width: 25px;
+        height: 25px;
+        margin-right: 10px;
+    }
+    
+    .google-btn {
+        background-color: #f8f6f6;
+        color: rgb(63, 63, 63);
+        font-weight: bold;
+        font-size: 15px !important;
+    }
+    
+    .apple-btn {
+        background-color: #f7f1f1;
+        color: black;
+        font-weight: bold;
+    }
+    
+    .create-account-btn {
+        background-color: #edf0f1;
+        color: rgb(2, 2, 2);
+        font-size: 17px;
+        font-weight: bold;
+    }
+    
+    .divider {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin: 20px 0;
+    }
+    span{
+        color: #eff1f3;
+    }
+    
+    .divider::before,
+    .divider::after {
+        content: '';
+        flex: 1;
+        border-bottom: 1px solid #eff1f3;
+    }
+    
+    .divider:not(:empty)::before {
+        margin-right: .25em;
+    }
+    
+    .divider:not(:empty)::after {
+        margin-left: .25em;
+    }
+    
+    a {
+        color: #1da1f2;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
+        margin: 0;
+}
+
+p {
+    color: white;
+}
+
+.container {
+    text-align: center;
+    background-color: rgb(15, 15, 15);
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #eff1f3;
+}
+
+button {
+    width: 90%; /* Réduire la largeur des boutons */
+    max-width: 500px; /* Limiter la largeur maximale */
+    padding: 13px;
+    margin: 10px auto; /* Centrer les boutons */
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button img.icon {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+.google-btn {
+    background-color: #f8f6f6;
+    color: rgb(63, 63, 63);
+    font-weight: bold;
+    font-size: 15px !important;
+}
+
+.apple-btn {
+    background-color: #f7f1f1;
+    color: black;
+    font-weight: bold;
+}
+
+.create-account-btn {
+    background-color: #edf0f1;
+    color: rgb(2, 2, 2);
+    font-size: 17px;
+    font-weight: bold;
+}
+
+a {
+    color: #1da1f2;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

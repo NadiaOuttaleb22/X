@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de Profil X</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/profil/css/main.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Partie gauche -->
+        <div class="sidebar">
+            <ul>
+            <li><a href="/Home/index.html"><i class="fas fa-home"></i> <span>Home</span></a></li>
+            <li><a href="/Explore/index.html"><i class="fas fa-hashtag"></i> <span>Explore</span></a></li>
+            <li><a href="/profil/html/main.html"><i class="fas fa-user"></i> <span>Profile</span></a></li>
+            </ul>
+            <button class="post-button" onclick="window.location.href='/Home/index.html'">Post</button>
+        </div>
+        <style>
+            
+            .sidebar {
+            border: 3px solid rgb(255, 252, 252);
+            border-radius: 10px;
+            box-shadow: 0 4px 4px rgb(65, 63, 63), 0 -4px 4px rgb(71, 69, 69), -4px 0 8px rgb(80, 74, 74), 4px 0 8px rgb(61, 56, 56);
+            padding: 10px;
+            margin: 20px;
+            background-color: #000000;
+            }
+            .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            }
+            .sidebar ul li {
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            }
+            .sidebar ul li a {
+            text-decoration: none;
+            color: #eceaea;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            }
+            .sidebar ul li a i {
+            margin-right: 10px;
+            font-size: 18px;
+            }
+            .sidebar ul li a span {
+            font-weight: bold;
+            }
+            .post-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #1da1f2;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+        </style>
+
+        <!-- Partie centrale -->
+        <div class="profile-center" id="profile-center">
+            <div class="profile-header">
+                
+                <img src="" alt="Profile Picture" class="profile-pic" id="profile-pic">
+                <input type="file" id="profile-pic-upload" style="display: none;" accept="image/*" onchange="loadProfilePic(event)">
+                <script>
+                    function getProfilePic() {
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const profilePic = urlParams.get('profilePic');
+                        return profilePic ? profilePic : '/profil/asset/profil.png';
+                    }
+
+                    document.getElementById('profile-pic').src = getProfilePic();
+
+                    document.querySelector('.profile-pic').addEventListener('click', function() {
+                        document.getElementById('profile-pic-upload').click();
+                    });
+
+                    function loadProfilePic(event) {
+                        var reader = new FileReader();
+                        reader.onload = function() {
+                            var output = document.querySelector('.profile-pic');
+                            output.src = reader.result;
+                        };
+                        reader.readAsDataURL(event.target.files[0]);
+                    }
+                </script>
+                <div class="profile-info">
+                    <div class="profile-header-info">
+                        <h2>nadia outtaleb</h2>
+                        <button class="get-verified">Get verified</button>
+                    </div>
+                    <p class="username">@OuttalebNa1439</p>
+                    <p style="color: rgb(151, 150, 150);"   class="bio">This is your bio. You can edit it anytime.</p>
+                    <script>
+                        function getBio() {
+                            const urlParams = new URLSearchParams(window.location.search);
+                            const bio = urlParams.get('bio');
+                            return bio ? bio : 'This is your bio. You can edit it anytime.';
+                        }
+
+                        document.querySelector('.bio').textContent = getBio();
+                    </script>
+                    <p class="join-date">Joined January 2025</p>
+                    <p class="follow-info">
+                        <span id="following-button">3 Following</span> · <span id="followers-button">3 Followers</span>
+                    </p>
+                    
+                    <script>
+                        document.getElementById('following-button').addEventListener('click', function() {
+                            showAlert('Following: NadiaOuttaleb11, WissalDadah22, HoussamEl33');
+                        });
+                    
+                        document.getElementById('followers-button').addEventListener('click', function() {
+                            showAlert('Following: NadiaOuttaleb11, WissalDadah22, HoussamEl33');
+                        });
+                    
+                        function showAlert(message) {
+                            // Create the alert container
+                            const alertContainer = document.createElement('div');
+                            alertContainer.style.position = 'fixed';
+                            alertContainer.style.top = '0';
+                            alertContainer.style.left = '0';
+                            alertContainer.style.width = '100%';
+                            alertContainer.style.height = '100%';
+                            alertContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+                            alertContainer.style.display = 'flex';
+                            alertContainer.style.justifyContent = 'center';
+                            alertContainer.style.alignItems = 'center';
+                            alertContainer.style.zIndex = '1000';
+
+                            // Create the alert box
+                            const alertBox = document.createElement('div');
+                            alertBox.style.backgroundColor = 'black';
+                            alertBox.style.padding = '20px';
+                            alertBox.style.borderRadius = '5px';
+                            //alertBox.style.color = 'black';
+                            alertBox.style.maxWidth = '80%';
+                            alertBox.style.textAlign = 'center';
+
+                            // Add the message to the alert box
+                            const messageList = document.createElement('ul');
+                            message.split(', ').forEach(item => {
+                                const listItem = document.createElement('li');
+                                listItem.textContent = item;
+                                messageList.appendChild(listItem);
+                            });
+                            alertBox.appendChild(messageList);
+
+                            // Add the alert box to the alert container
+                            alertContainer.appendChild(alertBox);
+
+                            // Add the alert container to the body
+                            document.body.appendChild(alertContainer);
+
+                            // Remove the alert when clicking outside the alert box
+                            alertContainer.addEventListener('click', function(event) {
+                                if (event.target === alertContainer) {
+                                    document.body.removeChild(alertContainer);
+                                }
+                            });
+                        }
+                    </script>
+                    
+                    
+                    <button class="setup-profile">Set up profile</button>
+                <script>
+                    document.querySelector('.setup-profile').addEventListener('click', function() {
+                        window.location.href = 'setUpProfil.html';
+                    });
+                </script>
+                </div>
+            </div>
+            
+            
+            <div class="profile-tabs">
+                <button class="active">Posts</button>
+                <button>Replies</button>
+                <button>Highlights</button>
+                <button>Articles</button>
+                <button>Media</button>
+                <button>Likes</button>
+            </div>
+            <div class="setup-steps">
+                <div class="step">Complete your profile</div>
+                <div class="step">Follow 5 accounts</div>
+                <div class="step">Follow 3 Topics</div>
+                <div class="step">Turn on notifications</div>
+            </div>
+            <div class="profile-content">
+                <h3>Posts</h3>
+                <div class="post"> <div class="post-header"> <div class="post-pic"></div> <div class="post-info"> <h4>nadia outtaleb</h4> <p>@OuttalebNa1439 · 1h</p> </div> </div> <div class="post-body"> <p>Hi</p> </div> <div class="post-footer"> <button><i class="fas fa-heart"></i> Like</button> <button><i class="fas fa-comment"></i> Comment</button> <button><i class="fas fa-share"></i> Share</button> <button><i class="fas fa-retweet"></i> Retweet</button> <button><i class="fas fa-bookmark"></i> Save</button> </div> </div>
+                <div class="post"> <div class="post-header"> <div class="post-pic"></div> <div class="post-info"> <h4>nadia outtaleb</h4> <p>@OuttalebNa1439 · 1h</p> </div> </div> <div class="post-body"> <p>Hi</p> </div> <div class="post-footer"> <button><i class="fas fa-heart"></i> Like</button> <button><i class="fas fa-comment"></i> Comment</button> <button><i class="fas fa-share"></i> Share</button> <button><i class="fas fa-retweet"></i> Retweet</button> <button><i class="fas fa-bookmark"></i> Save</button> </div> </div>
+                <div class="post"> <div class="post-header"> <div class="post-pic"></div> <div class="post-info"> <h4>nadia outtaleb</h4> <p>@OuttalebNa1439 · 1h</p> </div> </div> <div class="post-body"> <p>Hi</p> </div> <div class="post-footer"> <button><i class="fas fa-heart"></i> Like</button> <button><i class="fas fa-comment"></i> Comment</button> <button><i class="fas fa-share"></i> Share</button> <button><i class="fas fa-retweet"></i> Retweet</button> <button><i class="fas fa-bookmark"></i> Save</button> </div> </div>
+                <div class="post"> <div class="post-header"> <div class="post-pic"></div> <div class="post-info"> <h4>nadia outtaleb</h4> <p>@OuttalebNa1439 · 1h</p> </div> </div> <div class="post-body"> <p>Hi</p> </div> <div class="post-footer"> <button><i class="fas fa-heart"></i> Like</button> <button><i class="fas fa-comment"></i> Comment</button> <button><i class="fas fa-share"></i> Share</button> <button><i class="fas fa-retweet"></i> Retweet</button> <button><i class="fas fa-bookmark"></i> Save</button> </div> </div>
+                <div class="post"> <div class="post-header"> <div class="post-pic"></div> <div class="post-info"> <h4>nadia outtaleb</h4> <p>@OuttalebNa1439 · 1h</p> </div> </div> <div class="post-body"> <p>Hi</p> </div> <div class="post-footer"> <button><i class="fas fa-heart"></i> Like</button> <button><i class="fas fa-comment"></i> Comment</button> <button><i class="fas fa-share"></i> Share</button> <button><i class="fas fa-retweet"></i> Retweet</button> <button><i class="fas fa-bookmark"></i> Save</button> </div> </div>
+                
+                <div class="who-to-follow">
+                    <h3>Who to follow</h3>
+                    <ul>
+                        <li>
+                            <div class="follow-suggestion">
+                                <img src="/profil/asset/user1.png" alt="User 1" class="follow-pic">
+                                <div class="follow-info">
+                                    <h4>رسائل</h4>
+                                    <p>@Risslh</p>
+                                    <p>رسائل يوميه تعبر عنك 📩 | الإعلان خاص.</p>
+                                    <button class="follow-button">Follow</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="follow-suggestion">
+                                <img src="/profil/asset/user2.png" alt="User 2" class="follow-pic">
+                                <div class="follow-info">
+                                    <h4>غيث</h4>
+                                    <p>@1gheith</p>
+                                    <p>"سيؤتينا من الغيب أحلاه" ❤️</p>
+                                    <button class="follow-button">Follow</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="follow-suggestion">
+                                <img src="/profil/asset/user3.png" alt="User 3" class="follow-pic">
+                                <div class="follow-info">
+                                    <h4>علم النفس</h4>
+                                    <p>@Rssail1</p>
+                                    <p>رسائل نفسية وإيجابية وجميع الحلول للمشاكل النفسية.</p>
+                                    <button class="follow-button">Follow</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="show-more">Show more</div>
+                </div>
+                                
+
+            </div>
+            
+            <div class="profile-content">
+                <h3>Posts</h3>
+                <div class="post"> <div class="post-header"> <div class="post-pic"></div> <div class="post-info"> <h4>nadia outtaleb</h4> <p>@OuttalebNa1439 · 1h</p> </div> </div> <div class="post-body"> <p>Hi</p> </div> <div class="post-footer"> <button><i class="fas fa-heart"></i> Like</button> <button><i class="fas fa-comment"></i> Comment</button> <button><i class="fas fa-share"></i> Share</button> <button><i class="fas fa-retweet"></i> Retweet</button> <button><i class="fas fa-bookmark"></i> Save</button> </div> </div>
+                <div class="post"> <div class="post-header"> <div class="post-pic"></div> <div class="post-info"> <h4>nadia outtaleb</h4> <p>@OuttalebNa1439 · 1h</p> </div> </div> <div class="post-body"> <p>Hi</p> </div> <div class="post-footer"> <button><i class="fas fa-heart"></i> Like</button> <button><i class="fas fa-comment"></i> Comment</button> <button><i class="fas fa-share"></i> Share</button> <button><i class="fas fa-retweet"></i> Retweet</button> <button><i class="fas fa-bookmark"></i> Save</button> </div> </div>
+                <div class="post"> <div class="post-header"> <div class="post-pic"></div> <div class="post-info"> <h4>nadia outtaleb</h4> <p>@OuttalebNa1439 · 1h</p> </div> </div> <div class="post-body"> <p>Hi</p> </div> <div class="post-footer"> <button><i class="fas fa-heart"></i> Like</button> <button><i class="fas fa-comment"></i> Comment</button> <button><i class="fas fa-share"></i> Share</button> <button><i class="fas fa-retweet"></i> Retweet</button> <button><i class="fas fa-bookmark"></i> Save</button> </div> </div>
+                <div class="post"> <div class="post-header"> <div class="post-pic"></div> <div class="post-info"> <h4>nadia outtaleb</h4> <p>@OuttalebNa1439 · 1h</p> </div> </div> <div class="post-body"> <p>Hi</p> </div> <div class="post-footer"> <button><i class="fas fa-heart"></i> Like</button> <button><i class="fas fa-comment"></i> Comment</button> <button><i class="fas fa-share"></i> Share</button> <button><i class="fas fa-retweet"></i> Retweet</button> <button><i class="fas fa-bookmark"></i> Save</button> </div> </div>
+                <div class="post"> <div class="post-header"> <div class="post-pic"></div> <div class="post-info"> <h4>nadia outtaleb</h4> <p>@OuttalebNa1439 · 1h</p> </div> </div> <div class="post-body"> <p>Hi</p> </div> <div class="post-footer"> <button><i class="fas fa-heart"></i> Like</button> <button><i class="fas fa-comment"></i> Comment</button> <button><i class="fas fa-share"></i> Share</button> <button><i class="fas fa-retweet"></i> Retweet</button> <button><i class="fas fa-bookmark"></i> Save</button> </div> </div>
+                
+                <div class="who-to-follow">
+                    <h3>Who to follow</h3>
+                    <ul>
+                        <li>
+                            <div class="follow-suggestion">
+                                <img src="/profil/asset/user1.png" alt="User 1" class="follow-pic">
+                                <div class="follow-info">
+                                    <h4>رسائل</h4>
+                                    <p>@Risslh</p>
+                                    <p>رسائل يوميه تعبر عنك 📩 | الإعلان خاص.</p>
+                                    <button class="follow-button">Follow</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="follow-suggestion">
+                                <img src="/profil/asset/user2.png" alt="User 2" class="follow-pic">
+                                <div class="follow-info">
+                                    <h4>غيث</h4>
+                                    <p>@1gheith</p>
+                                    <p>"سيؤتينا من الغيب أحلاه" ❤️</p>
+                                    <button class="follow-button">Follow</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="follow-suggestion">
+                                <img src="/profil/asset/user3.png" alt="User 3" class="follow-pic">
+                                <div class="follow-info">
+                                    <h4>علم النفس</h4>
+                                    <p>@Rssail1</p>
+                                    <p>رسائل نفسية وإيجابية وجميع الحلول للمشاكل النفسية.</p>
+                                    <button class="follow-button">Follow</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="show-more">Show more</div>
+                </div>
+                                
+
+            </div>
+            <div class="profile-content">
+                <div class="highlight-container"> <h1>Highlight on your profile</h1> <h2>You must be subscribed to Premium to highlight posts on your profile.</h2> <button>Subscribe to Premium</button> </div>
+                
+            </div>
+            <div class="profile-content">
+                <div class="highlight-container"> <h1>Write Articles on X</h1> <h2>You must be subscribed to Premium+ to write Articles on X.</h2> <button>Uprade to Premium+</button> </div>
+            </div>
+            <div class="profile-content">
+                <div class="highlight-container"> <h1>Lights, camera … attachments!</h1> <p>When you post photos or videos, they will show up here.</p></div> 
+                
+                
+            </div>
+            <div class="profile-content">
+                <div class="highlight-container"> <h1>You don’t have any likes yet</h1> <p>Tap the heart on any post to show it some love. When you do, it’ll show up here.</p></div> 
+                
+                
+            </div>
+            
+            
+            
+            
+            <!-- Ajoutez d'autres posts ici -->
+        </div>
+
+        <!-- Partie droite -->
+        <div class="sidebar-right" id="sidebar-right">
+            <div class="suggestions">
+                <h3>You might like</h3>
+                <ul id="suggestions-list">
+                    <li>
+                        <div class="follow-suggestion" onclick="showSuggestionAlert('Johns Charts', '@johnscharts')">
+                            <img src="/profil/asset/sug1.png" alt="Johns Charts" class="follow-pic">
+                            <div class="follow-info">
+                                <h4>Johns Charts</h4>
+                                <p>@johnscharts</p>
+                            </div>
+                            <button class="follow-button">Follow</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="follow-suggestion" onclick="showSuggestionAlert('St. Louis Fed', '@stlouisfed')">
+                            <img src="/profil/asset/sug2.png" alt="St. Louis Fed" class="follow-pic">
+                            <div class="follow-info">
+                                <h4>St. Louis Fed</h4>
+                                <p>@stlouisfed</p>
+                            </div>
+                            <button class="follow-button">Follow</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="follow-suggestion" onclick="showSuggestionAlert('رسائل', '@Risslh')">
+                            <img src="/profil/asset/sug3.png" alt="رسائل" class="follow-pic">
+                            <div class="follow-info">
+                                <h4>رسائل</h4>
+                                <p>@Risslh</p>
+                            </div>
+                            <button class="follow-button">Follow</button>
+                        </div>
+                    </li>
+                </ul>
+                <div class="show-more" onclick="showMoreSuggestions()">Show more</div>
+            </div>
+            <div class="trending">
+                <h3>What's happening</h3>
+                <ul id="trending-list"></ul>
+                    <li><a href="/Explore/index.html">البطوله الاحترافيه</a></li>
+                    <li><a href="/Explore/index.html">بانن الاحبه</a></li>
+                    <li><a href="/Explore/index.html">المغرب التطواني</a></li>
+                    <li><a href="/Explore/index.html">لولا الظروف</a></li>
+                </ul>
+                <div class="show-more" onclick="showMoreTrending()">Show more</div>
+            </div>
+
+            <script>
+                function showMoreTrending() {
+                    const trendingList = document.getElementById('trending-list');
+                    const newTrendingItems = `
+                        <li><a href="/Explore/index.html">WorldCup2023</a> ·</li>
+                        <li><a href="/Explore/index.html">ClimateChange</a> ·</li>
+                        <li><a href="/Explore/index.html">TechInnovation</a> ·</li>
+                        <li><a href="/Explore/index.html">SpaceExploration</a> ·</li>
+                        <li><a href="/Explore/index.html">HealthCareReform</a> ·</li>
+                        <li><a href="/Explore/index.html">EconomicGrowth</a> ·</li>
+                    `;
+                    trendingList.insertAdjacentHTML('beforeend', newTrendingItems);
+                }
+            </script>
+
+            <style>
+                .trending {
+                    max-height: 95vh;
+                    overflow-y: auto;
+                }
+            </style>
+        </div>
+
+        <script>
+            function showMoreSuggestions() {
+            const suggestionsList = document.getElementById('suggestions-list');
+            const newSuggestions = `
+                <li>
+                <div class="follow-suggestion" onclick="showSuggestionAlert('Alice Johnson', '@alicejohnson')">
+                    <img src="/profil/asset/sug4.png" alt="Alice Johnson" class="follow-pic">
+                    <div class="follow-info">
+                    <h4>Alice Johnson</h4>
+                    <p>@alicejohnson</p>
+                    </div>
+                    <button class="follow-button">Follow</button>
+                </div>
+                </li>
+                <li>
+                <div class="follow-suggestion" onclick="showSuggestionAlert('Bob Smith', '@bobsmith')">
+                    <img src="/profil/asset/sug5.png" alt="Bob Smith" class="follow-pic">
+                    <div class="follow-info">
+                    <h4>Bob Smith</h4>
+                    <p>@bobsmith</p>
+                    </div>
+                    <button class="follow-button">Follow</button>
+                </div>
+                </li>
+                <li>
+                <div class="follow-suggestion" onclick="showSuggestionAlert('Charlie Davis', '@charliedavis')">
+                    <img src="/profil/asset/sug6.png" alt="Charlie Davis" class="follow-pic">
+                    <div class="follow-info">
+                    <h4>Charlie Davis</h4>
+                    <p>@charliedavis</p>
+                    </div>
+                    <button class="follow-button">Follow</button>
+                </div>
+                </li>
+            `;
+            suggestionsList.insertAdjacentHTML('beforeend', newSuggestions);
+            document.querySelector('.show-more').style.display = 'none';
+            }
+        </script>
+
+        <style>
+            .sidebar-right {
+                max-height: 95vh;
+                overflow-y: auto;
+            }
+        </style>
+
+        <script>
+            function showSuggestionAlert(name, handle) {
+            // Create the alert container
+            const alertContainer = document.createElement('div');
+            alertContainer.style.position = 'fixed';
+            alertContainer.style.top = '0';
+            alertContainer.style.left = '0';
+            alertContainer.style.width = '100%';
+            alertContainer.style.height = '100%';
+            alertContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            alertContainer.style.display = 'flex';
+            alertContainer.style.justifyContent = 'center';
+            alertContainer.style.alignItems = 'center';
+            alertContainer.style.zIndex = '1000';
+
+            // Create the alert box
+            const alertBox = document.createElement('div');
+            alertBox.style.backgroundColor = 'black';
+            alertBox.style.padding = '20px';
+            alertBox.style.borderRadius = '5px';
+            alertBox.style.border = '1px solid white';
+            alertBox.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+            alertBox.style.color = 'white';
+            alertBox.style.textAlign = 'center';
+
+            // Add the name and handle to the alert box
+            const nameElement = document.createElement('h4');
+            nameElement.textContent = name;
+            const handleElement = document.createElement('p');
+            handleElement.textContent = handle;
+            alertBox.appendChild(nameElement);
+            alertBox.appendChild(handleElement);
+
+            // Add the follow button to the alert box
+            const followButton = document.createElement('button');
+            followButton.textContent = 'Follow';
+            followButton.style.backgroundColor = '#1da1f2';
+            followButton.style.color = 'white';
+            followButton.style.border = 'none';
+            followButton.style.borderRadius = '5px';
+            followButton.style.padding = '10px';
+            followButton.style.cursor = 'pointer';
+            alertBox.appendChild(followButton);
+
+            followButton.addEventListener('click', function() {
+                followButton.style.backgroundColor = 'pink';
+                followButton.style.color = 'darkred';
+                alertBox.style.color = 'darkred';
+                alertBox.style.backgroundColor = 'pink';
+                alertBox.style.border = '1px solid darkred';
+                //ajouter en text dans alert 
+                alertBox.textContent = `You're now following ${name} (${handle})`;
+                
+                // Redirect to the main page after 3 seconds
+                setTimeout(() => {
+                    document.body.removeChild(alertContainer);
+                    window.location.href = '/profil/html/main.html';
+                }, 3000);
+                
+            });
+
+            // Add the alert box to the alert container
+            alertContainer.appendChild(alertBox);
+
+            // Add the alert container to the body
+            document.body.appendChild(alertContainer);
+
+            // Remove the alert when clicking outside the alert box
+            alertContainer.addEventListener('click', function(event) {
+                if (event.target === alertContainer) {
+                document.body.removeChild(alertContainer);
+                }
+            });
+            }
+        </script>
+        
+    </div>
+    <script src="/profil/js/script.js"></script>
+</body>
+</html>
