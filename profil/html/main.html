@@ -329,52 +329,121 @@
         <!-- Partie droite -->
         <div class="sidebar-right" id="sidebar-right">
             <div class="suggestions">
-            <h3>You might like</h3>
-            <ul>
-                <li>
-                <div class="follow-suggestion" onclick="showSuggestionAlert('Johns Charts', '@johnscharts')">
-                    <img src="/profil/asset/sug1.png" alt="Johns Charts" class="follow-pic">
-                    <div class="follow-info">
-                    <h4>Johns Charts</h4>
-                    <p>@johnscharts</p>
-                    </div>
-                    <button class="follow-button">Follow</button>
-                </div>
-                </li>
-                <li>
-                <div class="follow-suggestion" onclick="showSuggestionAlert('St. Louis Fed', '@stlouisfed')">
-                    <img src="/profil/asset/sug2.png" alt="St. Louis Fed" class="follow-pic">
-                    <div class="follow-info">
-                    <h4>St. Louis Fed</h4>
-                    <p>@stlouisfed</p>
-                    </div>
-                    <button class="follow-button">Follow</button>
-                </div>
-                </li>
-                <li>
-                <div class="follow-suggestion" onclick="showSuggestionAlert('رسائل', '@Risslh')">
-                    <img src="/profil/asset/sug3.png" alt="رسائل" class="follow-pic">
-                    <div class="follow-info">
-                    <h4>رسائل</h4>
-                    <p>@Risslh</p>
-                    </div>
-                    <button class="follow-button">Follow</button>
-                </div>
-                </li>
-            </ul>
-            <div class="show-more">Show more</div>
+                <h3>You might like</h3>
+                <ul id="suggestions-list">
+                    <li>
+                        <div class="follow-suggestion" onclick="showSuggestionAlert('Johns Charts', '@johnscharts')">
+                            <img src="/profil/asset/sug1.png" alt="Johns Charts" class="follow-pic">
+                            <div class="follow-info">
+                                <h4>Johns Charts</h4>
+                                <p>@johnscharts</p>
+                            </div>
+                            <button class="follow-button">Follow</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="follow-suggestion" onclick="showSuggestionAlert('St. Louis Fed', '@stlouisfed')">
+                            <img src="/profil/asset/sug2.png" alt="St. Louis Fed" class="follow-pic">
+                            <div class="follow-info">
+                                <h4>St. Louis Fed</h4>
+                                <p>@stlouisfed</p>
+                            </div>
+                            <button class="follow-button">Follow</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="follow-suggestion" onclick="showSuggestionAlert('رسائل', '@Risslh')">
+                            <img src="/profil/asset/sug3.png" alt="رسائل" class="follow-pic">
+                            <div class="follow-info">
+                                <h4>رسائل</h4>
+                                <p>@Risslh</p>
+                            </div>
+                            <button class="follow-button">Follow</button>
+                        </div>
+                    </li>
+                </ul>
+                <div class="show-more" onclick="showMoreSuggestions()">Show more</div>
             </div>
             <div class="trending">
-            <h3>What's happening</h3>
-            <ul>
-                <li><a href="#">البطوله الاحترافيه</a></li>
-                <li><a href="#">بانن الاحبه</a></li>
-                <li><a href="#">المغرب التطواني</a></li>
-                <li><a href="#">لولا الظروف</a></li>
-            </ul>
-            <div class="show-more">Show more</div>
+                <h3>What's happening</h3>
+                <ul id="trending-list"></ul>
+                    <li><a href="/Explore/index.html">البطوله الاحترافيه</a></li>
+                    <li><a href="/Explore/index.html">بانن الاحبه</a></li>
+                    <li><a href="/Explore/index.html">المغرب التطواني</a></li>
+                    <li><a href="/Explore/index.html">لولا الظروف</a></li>
+                </ul>
+                <div class="show-more" onclick="showMoreTrending()">Show more</div>
             </div>
+
+            <script>
+                function showMoreTrending() {
+                    const trendingList = document.getElementById('trending-list');
+                    const newTrendingItems = `
+                        <li><a href="/Explore/index.html">WorldCup2023</a> ·</li>
+                        <li><a href="/Explore/index.html">ClimateChange</a> ·</li>
+                        <li><a href="/Explore/index.html">TechInnovation</a> ·</li>
+                        <li><a href="/Explore/index.html">SpaceExploration</a> ·</li>
+                        <li><a href="/Explore/index.html">HealthCareReform</a> ·</li>
+                        <li><a href="/Explore/index.html">EconomicGrowth</a> ·</li>
+                    `;
+                    trendingList.insertAdjacentHTML('beforeend', newTrendingItems);
+                }
+            </script>
+
+            <style>
+                .trending {
+                    max-height: 95vh;
+                    overflow-y: auto;
+                }
+            </style>
         </div>
+
+        <script>
+            function showMoreSuggestions() {
+            const suggestionsList = document.getElementById('suggestions-list');
+            const newSuggestions = `
+                <li>
+                <div class="follow-suggestion" onclick="showSuggestionAlert('Alice Johnson', '@alicejohnson')">
+                    <img src="/profil/asset/sug4.png" alt="Alice Johnson" class="follow-pic">
+                    <div class="follow-info">
+                    <h4>Alice Johnson</h4>
+                    <p>@alicejohnson</p>
+                    </div>
+                    <button class="follow-button">Follow</button>
+                </div>
+                </li>
+                <li>
+                <div class="follow-suggestion" onclick="showSuggestionAlert('Bob Smith', '@bobsmith')">
+                    <img src="/profil/asset/sug5.png" alt="Bob Smith" class="follow-pic">
+                    <div class="follow-info">
+                    <h4>Bob Smith</h4>
+                    <p>@bobsmith</p>
+                    </div>
+                    <button class="follow-button">Follow</button>
+                </div>
+                </li>
+                <li>
+                <div class="follow-suggestion" onclick="showSuggestionAlert('Charlie Davis', '@charliedavis')">
+                    <img src="/profil/asset/sug6.png" alt="Charlie Davis" class="follow-pic">
+                    <div class="follow-info">
+                    <h4>Charlie Davis</h4>
+                    <p>@charliedavis</p>
+                    </div>
+                    <button class="follow-button">Follow</button>
+                </div>
+                </li>
+            `;
+            suggestionsList.insertAdjacentHTML('beforeend', newSuggestions);
+            document.querySelector('.show-more').style.display = 'none';
+            }
+        </script>
+
+        <style>
+            .sidebar-right {
+                max-height: 95vh;
+                overflow-y: auto;
+            }
+        </style>
 
         <script>
             function showSuggestionAlert(name, handle) {
