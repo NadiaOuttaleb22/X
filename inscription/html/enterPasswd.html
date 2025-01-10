@@ -9,28 +9,92 @@
 <body>
     <div class="login-container">
         <h1>Entrez votre mot de passe</h1>
-        <form>
+        <form id="login-form">
             <div class="input-group">
-                <label for="email">Email</label>
-                <span id="email-text">Nadiaouttaleb2gmail.com</span>
-                <script>
-                    const urlParams = new URLSearchParams(window.location.search);
-                    const email = urlParams.get('email');
-                    document.getElementById('email-text').textContent = decodeURIComponent(email);
-                </script>
+            <label for="email">Email</label>
+            <span id="email-text">Nadiaouttaleb2gmail.com</span>
+            <script>
+                const urlParams = new URLSearchParams(window.location.search);
+                const email = urlParams.get('email');
+                document.getElementById('email-text').textContent = decodeURIComponent(email);
+            </script>
             </div>
             <div class="input-group">
-                <label for="password">Mot de passe</label>
-                <input type="password" id="password" placeholder="Mot de passe">
-                <a id="forgot-password-link" href="/inscription/html/forgetPasswd.html" class="forgot-password">Mot de passe oublié ?</a>
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" placeholder="Mot de passe">
+            <a id="forgot-password-link" href="/inscription/html/forgetPasswd.html" class="forgot-password">Mot de passe oublié ?</a>
             </div>
-            <button type="submit">Se connecter</button>
+            <button type="submit" id="submit-button" disabled>Se connecter</button>
         </form>
+        <script>
+            const passwordInput = document.getElementById('password');
+            const submitButton = document.getElementById('submit-button');
+
+            passwordInput.addEventListener('input', function() {
+            submitButton.disabled = passwordInput.value === '';
+            });
+
+            document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const password = passwordInput.value;
+            if (password === '12345678') {
+                
+                const successAlert = document.createElement('div');
+                successAlert.textContent = 'Bienvenue sur notre application';
+                successAlert.style.position = 'fixed';
+                successAlert.style.top = '50%';
+                successAlert.style.left = '50%';
+                successAlert.style.transform = 'translate(-50%, -50%)';
+                successAlert.style.backgroundColor = '#000';
+                successAlert.style.color = '#fff';
+                successAlert.style.fontWeight = 'bold';
+                successAlert.style.border = '2px solid #fff';
+                successAlert.style.borderRadius = '10px';
+                successAlert.style.padding = '20px';
+                successAlert.style.boxShadow = '0 0 10px 0 rgba(255, 255, 255, 0.5)';
+                document.body.appendChild(successAlert);
+
+                setTimeout(function() {
+                    successAlert.remove();
+                    window.location.href = '/home/index.html';
+                }, 3000);
+           
+            } else {
+                alert('Le mot de passe est incorrect');
+            }
+            });
+
+            passwordInput.addEventListener('mouseover', function() {
+            passwordInput.style.backgroundColor = '#f0f0f0';
+            const hoverMessage = document.createElement('div');
+            hoverMessage.id = 'hover-message';
+            hoverMessage.textContent = 'Le mot de passe doit contenir les caractères suivants : 8 caractères, une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial'; 
+            hoverMessage.style.position = 'absolute';
+            hoverMessage.style.backgroundColor = '#000';
+            hoverMessage.style.border = '2px solid #fff';
+            hoverMessage.style.boxShadow = '0 0 10px 0 rgba(0, 0, 0, 0.1)';
+            hoverMessage.style.color = '#fff';
+            hoverMessage.style.fontWeight = 'bold';
+            hoverMessage.style.borderRadius = '10px';
+            hoverMessage.style.padding = '5px';
+            hoverMessage.style.top = passwordInput.offsetTop + passwordInput.offsetHeight + 'px';
+            hoverMessage.style.left = passwordInput.offsetLeft + 'px';
+            document.body.appendChild(hoverMessage);
+            });
+
+            passwordInput.addEventListener('mouseout', function() {
+            passwordInput.style.backgroundColor = '';
+            const hoverMessage = document.getElementById('hover-message');
+            if (hoverMessage) {
+                hoverMessage.remove();
+            }
+            });
+        </script>
         <p>Vous n'avez pas de compte ? <a href="/inscription/html/inscriptionPage.html">Inscrivez-vous</a></p>
     </div>
     <script>
         document.getElementById('forgot-password-link').href = `/inscription/html/forgetPasswd.html?email=${encodeURIComponent(email)}`;
     </script>
-    <script src="script.js"></script>
+    
 </body>
 </html>

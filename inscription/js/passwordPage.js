@@ -53,3 +53,5 @@ function usePhone() {
     alert('Utilisation du téléphone pour la vérification!');
     hideAlert();
 }
+
+

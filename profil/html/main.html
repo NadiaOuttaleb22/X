@@ -14,19 +14,62 @@
         <!-- Partie gauche -->
         <div class="sidebar">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Explore</a></li>
-                <li><a href="#">Notifications</a></li>
-                <li><a href="#">Messages</a></li>
-                <li><a href="#">Grok</a></li>
-                <li><a href="#">Communities</a></li>
-                <li><a href="#">Premium</a></li>
-                <li><a href="#">Verified Orgs</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">More</a></li>
+            <li><a href="/Home/index.html"><i class="fas fa-home"></i> <span>Home</span></a></li>
+            <li><a href="/Explore/index.html"><i class="fas fa-hashtag"></i> <span>Explore</span></a></li>
+            <li><a href="/profil/html/main.html"><i class="fas fa-user"></i> <span>Profile</span></a></li>
             </ul>
-            <button class="post-button">Post</button>
+            <button class="post-button" onclick="window.location.href='/Home/index.html'">Post</button>
         </div>
+        <style>
+            
+            .sidebar {
+            border: 3px solid rgb(255, 252, 252);
+            border-radius: 10px;
+            box-shadow: 0 4px 4px rgb(65, 63, 63), 0 -4px 4px rgb(71, 69, 69), -4px 0 8px rgb(80, 74, 74), 4px 0 8px rgb(61, 56, 56);
+            padding: 10px;
+            margin: 20px;
+            background-color: #000000;
+            }
+            .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            }
+            .sidebar ul li {
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            }
+            .sidebar ul li a {
+            text-decoration: none;
+            color: #eceaea;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            }
+            .sidebar ul li a i {
+            margin-right: 10px;
+            font-size: 18px;
+            }
+            .sidebar ul li a span {
+            font-weight: bold;
+            }
+            .post-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #1da1f2;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+        </style>
 
         <!-- Partie centrale -->
         <div class="profile-center" id="profile-center">
@@ -284,7 +327,131 @@
         </div>
 
         <!-- Partie droite -->
-        <div class="sidebar-right" id="sidebar-right"> <div class="suggestions"> <h3>You might like</h3> <ul> <li> <div class="follow-suggestion"> <img src="/profil/asset/sug1.png" alt="Johns Charts" class="follow-pic"> <div class="follow-info"> <h4>Johns Charts</h4> <p>@johnscharts</p> </div> <button class="follow-button">Follow</button> </div> </li> <li> <div class="follow-suggestion"> <img src="/profil/asset/sug2.png" alt="St. Louis Fed" class="follow-pic"> <div class="follow-info"> <h4>St. Louis Fed</h4> <p>@stlouisfed</p> </div> <button class="follow-button">Follow</button> </div> </li> <li> <div class="follow-suggestion"> <img src="/profil/asset/sug3.png" alt="رسائل" class="follow-pic"> <div class="follow-info"> <h4>رسائل</h4> <p>@Risslh</p> </div> <button class="follow-button">Follow</button> </div> </li> </ul> <div class="show-more">Show more</div> </div> <div class="trending"> <h3>What's happening</h3> <ul> <li><a href="#">البطوله الاحترافيه</a></li> <li><a href="#">بانن الاحبه</a></li> <li><a href="#">المغرب التطواني</a></li> <li><a href="#">لولا الظروف</a></li> </ul> <div class="show-more">Show more</div> </div> </div>
+        <div class="sidebar-right" id="sidebar-right">
+            <div class="suggestions">
+            <h3>You might like</h3>
+            <ul>
+                <li>
+                <div class="follow-suggestion" onclick="showSuggestionAlert('Johns Charts', '@johnscharts')">
+                    <img src="/profil/asset/sug1.png" alt="Johns Charts" class="follow-pic">
+                    <div class="follow-info">
+                    <h4>Johns Charts</h4>
+                    <p>@johnscharts</p>
+                    </div>
+                    <button class="follow-button">Follow</button>
+                </div>
+                </li>
+                <li>
+                <div class="follow-suggestion" onclick="showSuggestionAlert('St. Louis Fed', '@stlouisfed')">
+                    <img src="/profil/asset/sug2.png" alt="St. Louis Fed" class="follow-pic">
+                    <div class="follow-info">
+                    <h4>St. Louis Fed</h4>
+                    <p>@stlouisfed</p>
+                    </div>
+                    <button class="follow-button">Follow</button>
+                </div>
+                </li>
+                <li>
+                <div class="follow-suggestion" onclick="showSuggestionAlert('رسائل', '@Risslh')">
+                    <img src="/profil/asset/sug3.png" alt="رسائل" class="follow-pic">
+                    <div class="follow-info">
+                    <h4>رسائل</h4>
+                    <p>@Risslh</p>
+                    </div>
+                    <button class="follow-button">Follow</button>
+                </div>
+                </li>
+            </ul>
+            <div class="show-more">Show more</div>
+            </div>
+            <div class="trending">
+            <h3>What's happening</h3>
+            <ul>
+                <li><a href="#">البطوله الاحترافيه</a></li>
+                <li><a href="#">بانن الاحبه</a></li>
+                <li><a href="#">المغرب التطواني</a></li>
+                <li><a href="#">لولا الظروف</a></li>
+            </ul>
+            <div class="show-more">Show more</div>
+            </div>
+        </div>
+
+        <script>
+            function showSuggestionAlert(name, handle) {
+            // Create the alert container
+            const alertContainer = document.createElement('div');
+            alertContainer.style.position = 'fixed';
+            alertContainer.style.top = '0';
+            alertContainer.style.left = '0';
+            alertContainer.style.width = '100%';
+            alertContainer.style.height = '100%';
+            alertContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            alertContainer.style.display = 'flex';
+            alertContainer.style.justifyContent = 'center';
+            alertContainer.style.alignItems = 'center';
+            alertContainer.style.zIndex = '1000';
+
+            // Create the alert box
+            const alertBox = document.createElement('div');
+            alertBox.style.backgroundColor = 'black';
+            alertBox.style.padding = '20px';
+            alertBox.style.borderRadius = '5px';
+            alertBox.style.border = '1px solid white';
+            alertBox.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+            alertBox.style.color = 'white';
+            alertBox.style.textAlign = 'center';
+
+            // Add the name and handle to the alert box
+            const nameElement = document.createElement('h4');
+            nameElement.textContent = name;
+            const handleElement = document.createElement('p');
+            handleElement.textContent = handle;
+            alertBox.appendChild(nameElement);
+            alertBox.appendChild(handleElement);
+
+            // Add the follow button to the alert box
+            const followButton = document.createElement('button');
+            followButton.textContent = 'Follow';
+            followButton.style.backgroundColor = '#1da1f2';
+            followButton.style.color = 'white';
+            followButton.style.border = 'none';
+            followButton.style.borderRadius = '5px';
+            followButton.style.padding = '10px';
+            followButton.style.cursor = 'pointer';
+            alertBox.appendChild(followButton);
+
+            followButton.addEventListener('click', function() {
+                followButton.style.backgroundColor = 'pink';
+                followButton.style.color = 'darkred';
+                alertBox.style.color = 'darkred';
+                alertBox.style.backgroundColor = 'pink';
+                alertBox.style.border = '1px solid darkred';
+                //ajouter en text dans alert 
+                alertBox.textContent = `You're now following ${name} (${handle})`;
+                
+                // Redirect to the main page after 3 seconds
+                setTimeout(() => {
+                    document.body.removeChild(alertContainer);
+                    window.location.href = '/profil/html/main.html';
+                }, 3000);
+                
+            });
+
+            // Add the alert box to the alert container
+            alertContainer.appendChild(alertBox);
+
+            // Add the alert container to the body
+            document.body.appendChild(alertContainer);
+
+            // Remove the alert when clicking outside the alert box
+            alertContainer.addEventListener('click', function(event) {
+                if (event.target === alertContainer) {
+                document.body.removeChild(alertContainer);
+                }
+            });
+            }
+        </script>
+        
     </div>
     <script src="/profil/js/script.js"></script>
 </body>
